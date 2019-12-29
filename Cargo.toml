@@ -1,0 +1,14 @@
+[package]
+name = "msgpackel"
+version = "0.1.0"
+authors = ["Jin Xue <csjinxue@outlook.com>"]
+edition = "2018"
+
+[lib]
+path = "src/lib.rs"
+name = "msgpack"
+crate-type = ["cdylib"]
+
+[dependencies]
+emacs = "0.11.0"
+rmpv = "0.4"

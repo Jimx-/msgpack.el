@@ -1,0 +1,23 @@
+#+TITLE: msgpack.el
+
+This package is a wrapper of [[https://github.com/3Hren/msgpack-rust][msgpack-rust]] for Emacs. It provides functions for encoding/decoding messages in the [[https://msgpack.org][MessagePack]] format.
+
+* Installation
+#+BEGIN_SRC shell
+cargo build --release
+cd target/release
+mv libmsgpack.so msgpack.so
+#+END_SRC
+
+* Usage
+#+BEGIN_SRC emacs-lisp :results none
+(add-to-path 'load-path "/path/to/msgpack/so")
+(require 'msgpack)
+
+ELISP> (msgpack-read (msgpack-encode [1 2 (3 4) ((5 . 6) (7 . 8)) "hello"]))
+[1 2
+   [3 4]
+   ((5 6)
+    (7 8))
+   "hello"]
+#+END_SRC
